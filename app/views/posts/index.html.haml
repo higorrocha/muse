@@ -1,1 +1,4 @@
-%h1 OLha eu aqui
+- @posts.each do |post|
+	%h2= link_to post.title, post
+
+= link_to "New inspiration", new_post_path
