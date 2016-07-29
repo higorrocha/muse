@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
 	def show
 		@comments = Comment.where(post_id: @post)
-		
+		@random_post = Post.where.not(id: @post).order("RANDOM()").first
 	end
 
 	def new
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 		@post.downvote_from current_user
 		redirect_to :back
 	end
-	
+
 	private
 
 	def find_post
